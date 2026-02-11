@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Font Aliases managed via CSS variables from next/font */
+  --font-serif: var(--font-playfair), "Georgia", serif;
+  --font-sans: var(--font-manrope), "Inter", sans-serif;
+
+  /* Accent Color */
+  --color-accent: #2563eb; /* Royal Blue */
+  --color-accent-subtle: #60a5fa; /* Light Blue */
+
+  /* UI Colors */
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fdfbf7; /* 'Warm Paper' White */
+    --foreground: #1c1917; /* 'Stone' Black */
+    --subtle: #78716c; /* 'Warm Stone' Grey */
+    --border: #e7e5e4;
+  }
+
+  html.dark {
+    --background: #09090b; /* 'Zinc' Black */
+    --foreground: #fafafa; /* 'Zinc' White */
+    --subtle: #a1a1aa; /* 'Zinc' Grey */
+    --border: #27272a;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply font-sans antialiased leading-relaxed tracking-wide;
+  }
+
+  /* Smooth Theme Transition for all elements */
+  *, ::before, ::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  /* Disable default View Transition fade to allow custom circular reveal */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium tracking-tight text-balance;
+  }
+  
+  /* Selection Color */
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Utilities - Restoring specialized overrides */
+@utility border-subtle {
+  border-color: var(--border);
+}
+
+/* Hide Scrollbar */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Base resets for smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
