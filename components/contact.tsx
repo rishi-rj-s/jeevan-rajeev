@@ -15,7 +15,7 @@ export default function Contact() {
   };
 
   return (
-    <footer className="w-full min-h-[80vh] flex flex-col justify-between py-24 px-6 md:px-12 bg-background relative overflow-hidden" id="contact">
+    <footer className="w-full min-h-[80vh] flex flex-col justify-between pt-24 pb-6 px-6 md:px-12 bg-background relative overflow-hidden" id="contact">
       
       {/* Top Section */}
       <div className="w-full flex justify-between items-start border-b border-subtle pb-8 mb-12">
@@ -75,7 +75,7 @@ export default function Contact() {
       {/* Footer Meta */}
       <div className="w-full flex flex-col md:flex-row justify-between items-end md:items-center mt-24 pt-8 border-t border-subtle/20 text-subtle text-xs font-mono uppercase tracking-widest">
         <span>Kollam, Kerala</span>
-        <span>© {new Date().getFullYear()} Jeevan Rajeev.</span>
+        <span>© {new Date().getFullYear()} Jeevan Rajeev</span>
       </div>
 
       {/* Decorative Blob */}
