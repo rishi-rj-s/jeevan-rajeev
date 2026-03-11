@@ -16,7 +16,7 @@ export default function Contact() {
 
   return (
     <footer className="w-full min-h-[80vh] flex flex-col justify-between pt-24 pb-6 px-6 md:px-12 bg-background relative overflow-hidden" id="contact">
-      
+
       {/* Top Section */}
       <div className="w-full flex justify-between items-start border-b border-subtle pb-8 mb-12">
         <span className="text-sm font-sans uppercase tracking-[0.2em] text-subtle">Contact</span>
@@ -25,30 +25,30 @@ export default function Contact() {
 
       {/* Main Content */}
       <div className="flex flex-col flex-grow justify-center z-10">
-        <motion.h2 
+        <motion.h2
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-[12vw] leading-[0.8] font-serif tracking-tighter mb-12 text-foreground"
         >
-          LET'S <span className="text-zinc-500 italic font-light">TALK</span><br/>
+          LET'S <span className="text-zinc-500 italic font-light">TALK</span><br />
           BUSINESS.
         </motion.h2>
 
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 w-full">
-          
+        <div className="flex flex-col md:flex-row items-start justify-between gap-12 w-full">
+
           {/* Interactive Email Block */}
           <div className="group relative">
             <p className="text-sm font-sans text-subtle mb-2 uppercase tracking-wide">Email Address</p>
             <div className="flex items-center gap-4">
-              <a 
+              <a
                 href={`mailto:${email}`}
                 className="text-lg sm:text-2xl md:text-5xl font-sans font-medium hover:text-accent transition-colors duration-300 relative uppercase break-all sm:break-normal"
               >
                 {email}
                 <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
-              <button 
+              <button
                 onClick={handleCopy}
                 className="p-3 rounded-full hover:bg-subtle/10 transition-colors"
                 title="Copy Email"
@@ -59,23 +59,30 @@ export default function Contact() {
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col gap-4">
-             <p className="text-sm font-sans text-subtle mb-2 uppercase tracking-wide">Direct Line</p>
-             <a 
-               href="tel:+919567604984"
-               className="text-lg sm:text-2xl md:text-4xl font-sans font-medium hover:text-foreground transition-colors flex items-center gap-2 break-all sm:break-normal"
-             >
-               +91 9567604984
-               <ArrowUpRight className="w-6 h-6 text-subtle" />
-             </a>
+          <div className="group relative">
+            <p className="text-sm font-sans text-subtle mb-2 uppercase tracking-wide">Direct Line</p>
+            <div className="flex items-center gap-4">
+              <a
+                href="tel:+919567604984"
+                className="text-lg sm:text-2xl md:text-5xl font-sans font-medium hover:text-foreground transition-colors flex items-center gap-2 break-all sm:break-normal"
+              >
+                +91 9567604984
+                <ArrowUpRight className="w-6 h-6 text-subtle" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Footer Meta */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-end md:items-center mt-24 pt-8 border-t border-subtle/20 text-subtle text-xs font-mono uppercase tracking-widest">
-        <span>Kollam, Kerala</span>
-        <span>© {new Date().getFullYear()} Jeevan Rajeev</span>
+      <div className="w-full flex flex-col md:flex-row justify-between items-end md:items-center mt-24 pt-8 border-t border-subtle/20 text-subtle text-xs font-mono tracking-widest gap-4 md:gap-0">
+
+        <span className="uppercase">© {new Date().getFullYear()} Jeevan Rajeev. All rights reserved.</span>
+
+        <span className="opacity-60 hover:opacity-100 transition-opacity">
+          Designed & Developed by <a href="https://www.rishiraj-sajeev.space" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">rishi-rj-s</a>
+        </span>
+
       </div>
 
       {/* Decorative Blob */}
